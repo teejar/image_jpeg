@@ -37,7 +37,7 @@
     if (quality > 100) quality = 100;
 
     if (targetPath == nil || targetPath == NULL || [targetPath isKindOfClass:[NSNull class]]) {
-        targetPath = [srcPath  stringByAppendingString:".jpg"];
+        targetPath = [srcPath  stringByAppendingString:@".jpg"];
     }
     
     NSNumber *widthNumber = [NSNumber numberWithInt:mw];
@@ -45,7 +45,7 @@
 
     UIImage *image = [UIImage imageWithContentsOfFile:srcPath]; // init image
 
-    image = [self scaledImage:image maxWidth:mw maxHeight:mh];
+    image = [self scaledImage:image maxWidth:widthNumber maxHeight:heightNumber];
 
     CGFloat compression = quality / 100;
     NSData *data = UIImageJPEGRepresentation(image, compression);
