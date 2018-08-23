@@ -19,6 +19,8 @@
 
     int mw = 0;
     int mh = 0;
+    int quality;
+    
     @try{
         quality = [squality intValue];
         mw = [smaxWidth intValue];
@@ -37,6 +39,9 @@
     if (targetPath == nil || targetPath == NULL || [targetPath isKindOfClass:[NSNull class]]) {
         targetPath = [srcPath  stringByAppendingString:".jpg"];
     }
+    
+    NSNumber *widthNumber = [NSNumber numberWithInt:mw];
+    NSNumber *heightNumber = [NSNumber numberWithInt:mh];
 
     UIImage *image = [UIImage imageWithContentsOfFile:srcPath]; // init image
 
